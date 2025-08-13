@@ -1,0 +1,2 @@
+# website
+main static website
