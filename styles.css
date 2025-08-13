@@ -1,0 +1,170 @@
+/* styles.css */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+    color: #333;
+    font-size: 2.5em;
+}
+
+/* Slider container */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+    padding: 20px;
+    touch-action: pan-y; /* Add this for mobile swipe */
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 50px;
+    min-width: 300px; /* Fixed width for cards */
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.card-label {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-transform: uppercase;
+}
+
+.card-price {
+    margin-top: 40px;
+    font-size: 2em;
+    color: #333;
+}
+
+.card-features {
+    list-style: none;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.card-features li {
+    margin: 10px 0;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.card-features li::before {
+    content: '✔';
+    color: #00cc66;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.card-features li.cross::before {
+    content: 'X';
+    color: red;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .slides {
+        gap: 15px;
+    }
+    .card {
+        min-width: calc(50% - 15px); /* Show 2 cards on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .slides {
+        gap: 10px;
+    }
+    .card {
+        min-width: calc(100% - 10px); /* Show 1 card on small screens */
+        padding: 30px; /* Reduce padding for mobile */
+    }
+    .prev, .next {
+        font-size: 2.5em;
+        padding: 15px;
+    }
+}
+
+/* Optional: Make buttons easier to tap on mobile */
+@media (max-width: 480px) {
+    .prev, .next {
+        font-size: 3em;
+        padding: 20px;
+    }
+}
